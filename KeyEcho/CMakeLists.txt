@@ -1,9 +1,19 @@
-﻿# CMakeList.txt : CMake project for KeyEcho, include source and define
-# project specific logic here.
-#
-cmake_minimum_required (VERSION 3.8)
+﻿# KeyEcho/KeyEcho
+cmake_minimum_required (VERSION ${CMAKE_MINIMUM_VERSION})
 
-# Add source to this project's executable.
-add_executable (KeyEcho "KeyEcho.cpp" "KeyEcho.h")
+set(HEADERS
+	""
+)
 
-# TODO: Add tests and install targets if needed.
+set(SRCS
+	"main.cpp"
+)
+
+add_executable (KeyEcho ${SRCS})
+set_property(
+	TARGET KeyEcho
+	PROPERTY CXX_STANDARD 20
+)
+
+target_link_libraries(KeyEcho PUBLIC shared strlib TermAPI optlib)
+
